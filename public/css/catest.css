@@ -1,0 +1,60 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Play', sans-serif;
+}
+
+canvas {
+    border: 1px;
+    border-style: solid;
+    border-color: white;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+h1 {
+    margin-left: 1em;
+}
+
+.inputfield {
+    display: inline-block;
+    width: 100px;
+}
+
+.favoritesList {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.favoritesList li a {
+    text-decoration: none;
+    color: white;
+}
+
+.favoritesList li a:hover {
+    color: darkorange;
+}
+#controller {
+    position: fixed;
+    top: 2em;
+    right: 20%;
+    width: 20%;
+}
+
+#favorites {
+    position: fixed;
+    top: 2em;
+    right: 2em;
+    width: 15%;
+}
+
+.heading {
+    color: pink;
+}
+
+.btn {
+    background-color: #aaccee;
+    padding: 0.5em;
+    margin: 1em;
+    font-family: 'Play', sans-serif;
+}

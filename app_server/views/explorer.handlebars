@@ -1,0 +1,35 @@
+<div id="controller">
+            <p>Enter a list of numbers between 0 and 255 separated by spaces.</p>
+            <p>Click inside the canvas to turn a square "on".</p>
+            
+        <div class='inputs'>
+        
+            <input type="text" id="ruleset" name="number" class="inputfield" size='25' form="save" value="{{ruleset}}">
+        <form id="setrules">
+            <input type="submit" id="submitInputs" value="Update Ruleset" class="btn">
+        </form>
+            <p>Your 10 most popular neighborhoods:</p>
+        </div>
+        
+        <div id="suggestions">
+            <p>(Your updated demographics will appear here every time you click submit.)</p>
+        </div>
+        <div id="myfavorite">
+            <p>Found one you like? Click the button below to save it.</p>
+            <form action="/savefavorite" method="post" id="save">
+                <input type="submit" value="Save My Favorite" id="savemyfavorite" class="btn">
+            </form>
+        </div>
+            
+            
+        </div>
+<ul class="favoritesList">
+    <li><span class="heading">Favorites</span></li>
+{{#each favorites}}
+    <li><a href="/favorite/{{this.ruleset}}">{{this.ruleset}}</a>
+    </li>
+{{/each}}
+</ul>
+
+<script>{{loadFavorite}}</script>
+
