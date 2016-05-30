@@ -51,17 +51,8 @@ function changeState(n) {
         else nStateString += '1';
     }
     demographics[parseInt(nStateString.substring(1), 2)]++;
-    
-//    for(var i = 0; i < nStrings.length; i++) {
-//        if (nStrings[i] === nStateString) {
-//            return true;
-//        }
-//    }
-//    if(allBinStrings.indexOf(nStateString)%16 === 0) {
-//        return true;
-//    }
+
     if(userInputs.indexOf(nStateString) !== -1) {
-        //console.log(demographics[parseInt(nStateString.substring(1), 2)]);
         return true;
     }
     else return false;
@@ -95,26 +86,19 @@ function Bot(x, y) {
     this.y = y;
     this.tempstate = false;
     this.color = 150;
-    
-    //this.state = (((this.x%2 === 0 || this.x%3 === 0) && (this.y%2 === 0 || this.y%5 === 0)) ? false : true);
-    //this.state = (Math.random()<0.001 ? true : false);
     this.state = ((this.x === width - 50 && this.y === height / 2) ? true : false);
     
     this.update = function(n) {
       this.tempstate = (changeState(n) ? !this.state: this.state);
-      //this.tempstate = (changeState(n) === true ? true: false);
     }
     
     this.fixstate = function(i, j) {
-        //this.state = this.tempstate;
         this.state = bots[i][j+1].tempstate;
     }
     this.draw = function() {
         ctx = cagrid.context;
         if (this.state == true) {
-            //ctx.fillStyle = getRandomColor();
             ctx.fillStyle = 'rgb(50, 50, ' + this.color + ')';
-            //ctx.fillStyle = 'rgb(50,50,' + + ')';
         }
         else ctx.fillStyle = 'rgb(0,0,0)';
             ctx.fillRect(this.x, this.y, this.x + botsize, this.y + botsize);
@@ -149,12 +133,6 @@ function updateGrid() {
     for(p in demographics) {
         demographics[p] = 0;
     }
-//    for(var i = 1; i < bots.length; i++) {
-//        for(var j = 1; j < bots[i].length-1; j++) {
-//            
-//            bots[i][j].draw();
-//        }
-//    }
     for(var i = 1; i < bots.length-1; i++) {
         for(var j = 1; j < bots[i].length-1; j++) {
             bots[i][j].update([bots[i+1][j+1], bots[i][j+1], bots[i-1][j+1], bots[i-1][j],
@@ -179,7 +157,6 @@ function updateGrid() {
 
 button.addEventListener('click', function(e) {
     e.preventDefault();
-    //console.log(inputs);
     userInputs = [];
     var numbers = inputs[0].value.split(' ');
     for(var i = 0; i < numbers.length; i++) {
@@ -192,11 +169,6 @@ button.addEventListener('click', function(e) {
     console.log(demographics);
     var suggestions = getMostPopularNeighborhoods();
     displayPopularNeighborhoods(suggestions);
-    //console.log(suggestions);
-    
-//    suggestionsDiv.innerHTML = '';
-//    suggestionsDiv.textContent = suggestions;
-    
 })
 
 favButton.addEventListener('click', function(e) {
