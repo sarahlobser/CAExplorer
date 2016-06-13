@@ -10,8 +10,6 @@ module.exports.index = function(req, res) {
 }
 
 module.exports.savefavorite = function(req, res) {
-    console.log("I'm in save favorite");
-    console.log(req.body.ruleset);
     mysql.getConnection(function(err, con) {
         con.query("insert into favorite (ruleset, author) values ('" + req.body.number + "', 'sarah')", function(err, rows) {
             if(err) throw err;

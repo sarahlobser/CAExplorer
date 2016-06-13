@@ -2,10 +2,10 @@ var mysql = require('mysql');
 
 exports.getConnection = function(callback) {
     var con = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'root',
-        database: 'ca'
+        host     : process.env.DB_HOST || 'localhost',
+        user     : process.env.DB_USER || 'root',
+        password : process.env.DB_PASS || 'root',
+        database : process.env.DB_NAME || 'ca'
     });
     
     con.connect(function(err){
