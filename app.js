@@ -22,7 +22,7 @@ var handlebars = require('express-handlebars').create({defaultLayout:'../../app_
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
-var models = require('./app_api/models');
+var models = require('./app_server/models');
 
 //require routing from index
 app.use('/', require('./app_server/routes/index'));
