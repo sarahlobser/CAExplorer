@@ -25,7 +25,7 @@ app.set('view engine', 'handlebars');
 var models = require('./app_server/models');
 
 //require routing from index
-app.use('/', require('./app_server/routes/index'));
+app.use('/explore', require('./app_server/routes/index'));
 
 //404 and 500 routes
 app.use(function(req, res){
