@@ -38,9 +38,13 @@ app.use(function(req, res){
                   res.status(500);
                   res.send('500');
             });
-
-//set up port 3000
-app.listen(port, function() {
-    console.log('ca app started on' + port + 
-               '; press ctrl-c to terminate.')
-});
+models.sequelize.sync()
+    .then(function () {
+        console.log('successfully synced db');
+        app.listen(port, function () {
+            console.log('listening on ' + port);
+        });
+    })
+    .catch(function (err) {
+        console.error(err);
+    });
